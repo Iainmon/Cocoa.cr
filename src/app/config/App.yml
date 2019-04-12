@@ -1,0 +1,7 @@
+app:
+  metadata:
+    appname: MyCocoaApplication
+    version: 0.1.0
+  ui:
+    default_window_name: Crystal Cocoa
+    

@@ -1,9 +1,10 @@
+require "./cocoa/*"
 require "./app/program/MainDelegate"
 require "./app/ui/UserInterface"
 
-
 module MyCocoaApplication
-  VERSION = "0.1.0"
+
+  VERSION = Cocoa::CONFIG
 
   maindelegate = MainDelegate.new
 
@@ -12,5 +13,6 @@ module MyCocoaApplication
   ui.load_ui_action_callbacks maindelegate.@uiOptions
   ui.render()
 
+  puts "#{Time.now.to_s} | Application stopped."
 
 end

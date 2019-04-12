@@ -1,5 +1,3 @@
-require "../../../cocoa/ViewController"
-
 class MainWindow < Cocoa::ViewController
   def draw
     self.on_stop = ->should_quit

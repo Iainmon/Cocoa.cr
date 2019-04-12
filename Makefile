@@ -4,8 +4,9 @@ build-app:
 	cp ./bin/MyCocoaApplication ./build/MyCocoaApplication.app/Contents/MacOS/
 	cp ./vendor/Frameworks/libui.A.dylib ./build/MyCocoaApplication.app/Contents/Frameworks/
 
-run: build
-	./bin/app
+run: build-app
+	#open ./build/MyCocoaApplication.app
+	./build/MyCocoaApplication.app/Contents/MacOS/MyCocoaApplication
 
 package:
 	shards build --release --link-flags="-rpath @executable_path/../Frameworks -L`pwd`/vendor"
