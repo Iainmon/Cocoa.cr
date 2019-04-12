@@ -1,14 +1,15 @@
 require "./cocoa/*"
-require "./app/program/MainDelegate"
-require "./app/ui/UserInterface"
+require "./app/program/*"
+require "./app/ui/*"
+require "./app/ui/windows/MainWindow"
 
 module MyCocoaApplication
 
-  VERSION = Cocoa::CONFIG
+  VERSION = Cocoa::CONFIG["app"]["metadata"]["version"]
 
-  maindelegate = MainDelegate.new
+  maindelegate = Delegates::AppDelegate.new
 
-  ui = UserInterface.new
+  ui = UserInterface::UserInterfaceHandler.new
   ui.load_events maindelegate.@uiEvents
   ui.load_ui_action_callbacks maindelegate.@uiOptions
   ui.render()
