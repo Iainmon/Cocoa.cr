@@ -1,0 +1,19 @@
+name: MyCocoaApplication
+version: 0.1.0
+
+authors:
+  - Iain Moncrief <Iainmoncrief@gmail.com>
+
+targets:
+  MyCocoaApplication:
+    main: src/MyCocoaApplication.cr
+
+dependencies:
+  hedron:
+    github: hedron-crystal/hedron
+  baked_file_system:
+    github: schovi/baked_file_system
+    version: 0.9.8
+crystal: 0.27.2
+
+license: MIT

@@ -1,0 +1,50 @@
+Window #window {
+  @title: "Snatch";
+  @width: 640;
+  @height: 480;
+  @menubar: true;
+  
+  Group {
+    @title: "Snatch";
+    margined: true;
+
+    VerticalBox #vbox {
+      padded: true;
+      stretchy: true;
+
+      Label #instructionlable2 {
+        @text: "Enter a domain name to snatch from";
+        @stretchy: true;
+      }
+
+      HorizontalBox #hbox2 {
+        padded: true;
+        stretchy: false;
+
+        Entry #commandtextbox {
+          text: "www.example.com";
+          read_only: false;
+          stretchy: true;
+        }
+
+        Button #runbutton {
+          @text: "Snatch";
+        }
+      }
+
+
+      HorizontalSeparator {}
+
+      Group {
+        @title: "Status";
+        margined: true;
+
+        Label #statuslabel {
+          @text: "";
+          @stretchy: true;
+        }
+        
+      }
+    }
+  }
+}

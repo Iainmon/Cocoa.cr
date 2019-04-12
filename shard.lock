@@ -1,0 +1,18 @@
+version: 1.0
+shards:
+  baked_file_system:
+    github: schovi/baked_file_system
+    version: 0.9.8
+
+  hedron:
+    github: hedron-crystal/hedron
+    commit: cc5af0ec6db066f5f47121315b29342afc6102f2
+
+  stumpy_core:
+    github: stumpycr/stumpy_core
+    version: 1.8.3
+
+  stumpy_png:
+    github: stumpycr/stumpy_png
+    version: 4.4.1
+

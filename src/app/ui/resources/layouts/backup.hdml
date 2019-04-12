@@ -1,0 +1,32 @@
+Window #window {
+  @title: "HDML test";
+  @width: 640;
+  @height: 480;
+  @menubar: true;
+  
+  Group {
+    @title: "Group";
+    margined: true;
+
+    VerticalBox {
+      padded: true;
+      stretchy: true;
+
+      Entry #commandTextbox {
+        text: "sd";
+        read_only: false;
+        stretchy: false;
+      }
+
+      Button #runButton {
+        @text: "Click me!";
+      }
+
+      Entry #outputTextbox {
+        text: "sd";
+        read_only: false;
+        stretchy: false;
+      }
+    }
+  }
+}
