@@ -25,11 +25,14 @@ module Cocoa
     end
 
     def should_quit
+      puts "trying to quit"
       @window.not_nil!.destroy
+      puts "quitting"
       return true
     end
 
     def draw
+
       self.on_stop = ->should_quit
 
       @window = Hedron::Window.new("Grid Gallery", {640, 480}, menubar: true)

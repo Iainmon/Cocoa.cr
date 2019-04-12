@@ -2,6 +2,7 @@ require "./windows/MainWindow"
 
 module UserInterface
   class UserInterfaceHandler
+
     @events : Cocoa::UIEvents = Cocoa::UIEvents.new
 
     def initialize
@@ -9,6 +10,7 @@ module UserInterface
     end
 
     def render
+
       @window.draw
 
       @events.@will_start_callback.call
