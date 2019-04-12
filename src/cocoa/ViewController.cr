@@ -2,7 +2,10 @@ require "hedron"
 
 module Cocoa
   class ViewController < Hedron::Application
+
     @window : Hedron::Window?
+
+    @actions : Hash(String, Proc(Nil)) = {"test" => ->{ puts "hello" }}
 
     def initialize
       options = UI::InitOptions.new
@@ -11,8 +14,6 @@ module Cocoa
         raise Hedron::UIError.new("Error initializing UI: #{String.new(err)}")
       end
     end
-
-    @actions : Hash(String, Proc(Nil)) = {"test" => ->{ puts "hello" }}
 
     def load_action_callbacks(callbacks : Hash(String, Proc(Nil)))
       @actions = callbacks
