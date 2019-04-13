@@ -10,6 +10,7 @@ module Cocoa
   end
 
   CONFIG = YAML.parse(BakedConfigFolder.get("App.yml"))
+  APP_CONFIG = CONFIG["app"]["metadata"]
   UI_CONFIG = CONFIG["app"]["ui"]
 
 end

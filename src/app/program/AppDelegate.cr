@@ -6,13 +6,13 @@ module Delegates
 
     def create_ui_events
       @uiEvents.will_start ->{
-        puts "Starting..."
+        info "Starting #{APP_CONFIG["app_name"]}..."
       }
       @uiEvents.will_terminate ->{
-        puts "Terminating..."
+        info "Terminating #{APP_CONFIG["app_name"]}..."
       }
       @uiEvents.did_terminate ->{
-        puts "Terminated!"
+        info "Terminated!"
       }
     end
 

@@ -14,6 +14,6 @@ module MyCocoaApplication
   ui.load_ui_action_callbacks maindelegate.@uiOptions
   ui.render()
 
-  puts "#{Time.now.to_s} | Application stopped."
+  warn "#{Time.now.to_s} | Application killed."
 
 end
