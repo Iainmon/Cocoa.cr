@@ -9,7 +9,7 @@ module MyCocoaApplication
 
   maindelegate = Delegates::AppDelegate.new
 
-  ui = UserInterface::UserInterfaceHandler.new
+  ui = UserInterface::MainUserInterfaceHandler.new
   ui.load_events maindelegate.@uiEvents
   ui.load_ui_action_callbacks maindelegate.@uiOptions
   ui.render()

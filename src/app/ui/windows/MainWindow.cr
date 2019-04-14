@@ -1,29 +1,18 @@
-#include Hedron
-
 module Windows
 
   class MainWindow < Cocoa::ViewController
 
+    # Window dimensions
+    @windowWidth : Int32 = 640
+    @windowHeight : Int32 = 480
+
+    # Gets the default window name option from config/App.yml
+    @windowName : String = Cocoa::CONFIG["app"]["ui"]["default_window_name"].to_s
+
+    @hasMenuBar = false
+
     # This implamentation does not work
-    def draw
-
-      # Gets the default window name option from config/App.yml
-      windowName = Cocoa::CONFIG["app"]["ui"]["default_window_name"].to_s
-
-      # Window dimensions
-      windowWidth = 640
-      windowHeight = 480
-
-      # Initializes an action to prevent runtime errors
-      @actions = { "SampleAction" => ->{ puts "Hello World!" } } if @actions.nil?
-
-      # Creates a Window object
-      @window = Hedron::Window.new(
-          windowName,
-          {windowWidth, windowHeight},
-          menubar: true
-        )
-      @window.not_nil!.on_close = ->on_closing(Hedron::Window) if Cocoa::UI_CONFIG["quit_on_close"].to_s == "true"
+    def build
 
       # Creates a Grid object
       grid = Hedron::Grid.new
@@ -50,10 +39,14 @@ module Windows
 
       age = Hedron::Slider.new({0, 100})
       age.value = 40
+      age.on_change = Proc(Hedron::Slider, Nil).new do |slider|
+        puts slider.value.to_s
+      end
       grid.push(age, {1, 3}, cell_info)
 
-      @window.not_nil!.child = grid
-      @window.not_nil!.show
+      set_root grid
+
     end
+
   end
 end
