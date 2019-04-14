@@ -16,13 +16,12 @@ module Cocoa
       @events.@will_start_callback.call
       @window.start
 
-      @events.@will_terminate_callback.call
-      @window.should_quit
       @events.@did_terminate_callback.call
     end
 
     def load_events(events : UIEvents)
       @events = events
+      @window.load_ui_action_callbacks events
     end
 
     def load_ui_action_callbacks(action_callbacks : Hash(String, Proc(Nil)))

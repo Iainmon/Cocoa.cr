@@ -16,8 +16,6 @@ module UserInterface
       @events.@will_start_callback.call
       @window.start
 
-      @events.@will_terminate_callback.call
-      @window.should_quit
       @events.@did_terminate_callback.call
     end
 

@@ -5,7 +5,9 @@ module Cocoa
 
     @window : Hedron::Window?
 
-    @actions : Hash(String, Proc(Nil)) = {"test" => ->{ puts "hello" }}
+    @events : UIEvents = UIEvents.new
+
+    @actions : Hash(String, Proc(Nil)) = { "SampleAction" => ->{ puts "Hello World!" } }
 
     # Window dimensions
     @windowWidth : Int32 = 640
@@ -22,41 +24,13 @@ module Cocoa
       unless ui_nil?(err)
         raise Hedron::UIError.new("Error initializing UI: #{String.new(err)}")
       end
-      Signal::QUIT.trap do
-        puts "somesig"
-      end
-      Signal::TERM.trap do
-        puts "somesig"
-      end
-      Signal::KILL.trap do
-        puts "somesig"
-      end
-      Signal::ABRT.trap do
-        puts "somesig"
-      end
 
-      # boxed_data = ::Box.box(proc)
-      # @@box = boxed_data
+      self.on_stop = ->should_quit
 
-      # new_proc = ->(button : UI::Button*, data : Void*) {
-      #   callback = ::Box(Proc(Button, Nil)).unbox(data)
-      #   callback.call(Button.new(ui_control(button)))
-      # }
+    end
 
-      # UI.button_on_clicked(to_unsafe, new_proc, boxed_data)
-
-      quitcallback = ->{
-        puts "hello"
-      }
-      quitproc = Proc(Pointer(Void), Int32).new do
-        puts "okok"
-        return 1
-      end
-      quitdat = Proc(Void, Void).new do
-
-      end
-      UI.on_should_quit(quitproc, pointerof(quitdat))
-
+    def load_ui_action_callbacks(events : UIEvents)
+      @events = events
     end
 
     def load_action_callbacks(callbacks : Hash(String, Proc(Nil)))
@@ -64,14 +38,13 @@ module Cocoa
     end
 
     def on_closing(this)
+      should_quit
       self.stop
       return false
     end
 
     def should_quit
-      puts "trying to quit"
-      @window.not_nil!.destroy
-      puts "quitting"
+      @events.@will_terminate_callback.call
       return true
     end
 

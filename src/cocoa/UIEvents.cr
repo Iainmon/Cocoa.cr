@@ -1,5 +1,6 @@
 module Cocoa
   class UIEvents
+
     @will_start_callback : Proc(Void) = ->{}
 
     @will_terminate_callback : Proc(Void) = ->{}
