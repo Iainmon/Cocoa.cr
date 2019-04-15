@@ -104,5 +104,22 @@ module Cocoa
       @window.not_nil!.show
     end
 
+    def pop_message(title : String = "", description : String = "")
+      @window.not_nil!.message(title: title, description: description)
+    end
+
+    def pop_error(title : String = "", description : String = "")
+      @window.not_nil!.error(title: title, description: description)
+    end
+
+    def set_fullscreen(is_fullscreen : Bool)
+      @window.not_nil!.fullscreen = is_fullscreen
+    end
+
+    def is_fullscreen
+      @window.not_nil!.fullscreen?
+    end
+
+
   end
 end

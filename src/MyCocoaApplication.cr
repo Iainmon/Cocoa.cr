@@ -1,7 +1,8 @@
 require "./cocoa/*"
-require "./app/program/*"
+require "./app/program/**"
 require "./app/ui/*"
 require "./app/ui/windows/MainWindow"
+require "./app/ui/windows/widgets/*"
 
 module MyCocoaApplication
 
