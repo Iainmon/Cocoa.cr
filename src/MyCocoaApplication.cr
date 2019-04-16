@@ -1,12 +1,10 @@
 require "./cocoa/*"
-require "./app/program/**"
+require "./app/delegates/**"
 require "./app/ui/*"
-require "./app/ui/windows/MainWindow"
-require "./app/ui/windows/widgets/*"
 
 module MyCocoaApplication
 
-  VERSION = Cocoa::CONFIG["app"]["metadata"]["version"]
+  VERSION = Cocoa::APP_CONFIG["version"]
 
   maindelegate = Delegates::AppDelegate.new
 

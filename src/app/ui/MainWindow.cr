@@ -5,11 +5,11 @@ module Windows
   class MainWindow < Cocoa::ViewController
 
     # Window dimensions
-    @windowWidth : Int32 = 200
-    @windowHeight : Int32 = 250
+    @windowWidth : Int32 = 0
+    @windowHeight : Int32 = 0
 
     # Gets the default window name option from config/App.yml
-    @windowName : String = Cocoa::CONFIG["app"]["ui"]["default_window_name"].to_s
+    @windowName : String = Cocoa::UI_CONFIG["default_window_name"].to_s
 
     @hasMenuBar = false
 
@@ -39,7 +39,7 @@ module Windows
       }
 
       # Creates a button with a callback that executes every time it is clicked
-      button = Hedron::Button.new("My Button")
+      button = Hedron::Button.new("Action 1")
       button.on_click = ->(button : Hedron::Button) {
         @actions.["action_1"].call
       }
@@ -48,6 +48,12 @@ module Windows
       toggleFullscreenButton = Hedron::Button.new("Toggle Fullscreen")
       toggleFullscreenButton.on_click = ->(button : Hedron::Button) {
         set_fullscreen(!is_fullscreen)
+      }
+
+      # Creates a button that calls one of the UI callbacks that were set in the main delegate
+      callDelegateButton = Hedron::Button.new("Call Delegate")
+      callDelegateButton.on_click = ->(button : Hedron::Button) {
+        @actions.["action_2"].call
       }
 
       defaultAge = 40
@@ -73,6 +79,7 @@ module Windows
       grid.push(Hedron::Label.new("Age"), {0, 2}, cell_info)
       grid.push(Hedron::Label.new("Age Entered"), {0, 3}, cell_info)
       grid.push(Hedron::Label.new("Toggle Fullscreen"), {0, 4}, cell_info)
+      grid.push(Hedron::Label.new("Call Delegate"), {0, 5}, cell_info)
 
       # Adds all of the items in the right row to the grid
       grid.push(name, {1, 0}, cell_info)
@@ -80,6 +87,7 @@ module Windows
       grid.push(ageSlider, {1, 2}, cell_info)
       grid.push(enteredAge, {1, 3}, cell_info)
       grid.push(toggleFullscreenButton, {1, 4}, cell_info)
+      grid.push(callDelegateButton, {1, 5}, cell_info)
 
       root.child = grid # Sets the grid to the root group's child
 

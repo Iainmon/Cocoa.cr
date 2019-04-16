@@ -40,7 +40,7 @@ module Delegates
     end
 
     def ui_callback_example
-
+      warn "AppDelegate method called!"
     end
 
 
