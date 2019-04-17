@@ -16,7 +16,7 @@ I am a Junior in high school, and made this project in a weekend for self use, b
 
 The goal for Cocoa.cr is to provide a structure similar to Cocoa applications bult with XCode, and providing native GUI support. If you come from Objective-C or Swift, you may see some function names that are framiliar, such as 'applicationWillTerminate'. The Crystal part of the application compiles into a partially-static binary, that is included with libgc, libevent, libyaml, libssl, and libcrypto. This means that the crystal standard library can run on any macOS computer, without having those libraries installed. The only library that needs to be included with the program is libui.A.dylib, but running `$ make package` will do the trick by including the dynamic library in the Frameworks subdirectory within the app, so it is distibutable. To make the GUI part more intuitive and flexible, I used the Hedron library, which is an object oriented Crystal library for libui.
 
-# Acknowledgments
+## Acknowledgments
 
 hedron-crystal/hedron - OOP interface for libui
 
