@@ -1,0 +1,7 @@
+app:
+  metadata:
+    app_name: MyCocoaApplication
+    version: 0.1.0
+  ui:
+    default_window_name: Crystal Cocoa
+    quit_on_close: true
