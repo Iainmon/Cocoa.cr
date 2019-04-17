@@ -1,7 +1,0 @@
-require "./hedron/exception/*"
-require "./hedron/hdml/*"
-require "./hedron/menu/*"
-require "./hedron/struct/*"
-require "./hedron/ui/*"
-require "./hedron/widget/*"
-require "./hedron/*"

@@ -6,8 +6,6 @@ A distributable macOS GUI application framework for Crystal using libui and Hedr
 1. Clone the project
 2. `$ make run`  OR  `$ make build && open ./build/MyCocoaApplication.app`
 
-NOTE: Do not run `shards install` or `shards update`, the Hedron library has no releases, and has been modified to link with the libui.A.dylib file in the './vendor' directory. If you whish to install a shard, make a backup of the 'lib/hedron' directory.
-
 ## Structure
 
 All of the user interface configuration and management is in the 'src/app/ui' directory. The actual logic of your program should be inside of the 'src/app/delegates' directory. Any sort of constants or options for your project should be stored in the 'src/app/config/App.yml'. This file is compiled into the executable using schovi/baked_file_system, and you can acess the config file with `Cocoa::CONFIG` or `Cocoa::APP_CONFIG` and `Cocoa::UI_CONFIG`.
