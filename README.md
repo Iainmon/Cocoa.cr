@@ -10,9 +10,9 @@ NOTE: Do not run `shards install` or `shards update`, the Hedron library has no 
 
 ## Structure
 
-All of the user interface configuration and management is in the 'src/app/ui' directory. The actual logic of your program should be inside of the 'src/app/delegates' directory.
+All of the user interface configuration and management is in the 'src/app/ui' directory. The actual logic of your program should be inside of the 'src/app/delegates' directory. Any sort of constants or options for your project should be stored in the 'src/app/config/App.yml'. This file is compiled into the executable using schovi/baked_file_system, and you can acess the config file with `Cocoa::CONFIG` or `Cocoa::APP_CONFIG` and `Cocoa::UI_CONFIG`.
 
-I am a Junior in high school, and made this project in a weekend for self use, but wanted to share it with other people. I made this because I wanted the ability to make a GUI application in Crystal, and distribute it to my friends. I also wanted the ability to have callbacks for events, such as the user clicked the window close button, or cmd+Q. If you have any suggestions or way to make this project better, don't be afraid to open a pull request!
+I am a Junior in high school, and made this project in a weekend for self use, but wanted to share it with other people. I made this because I wanted the ability to make a GUI application in Crystal, and distribute it to my friends. I also wanted the ability to have callbacks for events, such as the user clicked the window close button, or cmd+Q. If you have any suggestions or ways to make this project better, don't be afraid to open a pull request!
 
 ## About
 
