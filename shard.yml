@@ -10,7 +10,8 @@ targets:
 
 dependencies:
   hedron:
-    github: hedron-crystal/hedron
+    github: iainmon/adapted-hedron
+    version: 0.0.1
   baked_file_system:
     github: schovi/baked_file_system
     version: 0.9.8

@@ -5,8 +5,8 @@ shards:
     version: 0.9.8
 
   hedron:
-    github: hedron-crystal/hedron
-    commit: cc5af0ec6db066f5f47121315b29342afc6102f2
+    github: iainmon/adapted-hedron
+    version: 0.0.1
 
   stumpy_core:
     github: stumpycr/stumpy_core
