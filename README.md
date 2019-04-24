@@ -4,6 +4,7 @@ A distributable macOS GUI application framework for Crystal using libui and Hedr
 ## Quickstart
 
 1. Clone the project
+3. `$ shards install`
 2. `$ make run`  OR  `$ make build && open ./build/MyCocoaApplication.app`
 
 ## Structure
